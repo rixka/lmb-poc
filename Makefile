@@ -19,6 +19,7 @@ help:
 	@echo '    make run             run app/app.py'
 	@echo
 	@echo '    make docker-up       run docker-compose up'
+	@echo '    make docker-up-mongo run docker-compose -f docker-compose-mongo-only.yml up'
 	@echo '    make docker-down     run docker-compose down'
 	@echo '    make docker-logs     run docker-compose logs'
 	@echo
@@ -48,6 +49,9 @@ run:
 
 docker-up:
 	docker-compose up --force-recreate -d
+
+docker-up-mongo:
+	docker-compose -f docker-compose-mongo-only.yml up --force-recreate -d
 
 docker-down:
 	docker-compose down

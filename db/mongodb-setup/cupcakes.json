@@ -1,0 +1,68 @@
+[
+  {
+    "artist": "Elvis",
+    "name": "Lycanthropic Metamorphosis",
+    "flavour": "vanilla",
+    "released": "2016-10-26"
+  },
+  {
+    "artist": "Mama",
+    "name": "A New Kennel",
+    "flavour": "vanilla",
+    "released": "2010-02-03"
+  },
+  {
+    "artist": "Mr Fastfinger",
+    "name": "Awaki-Waki",
+    "flavour": "chocolate orange",
+    "released": "2012-05-11"
+  },
+  {
+    "artist": "Mama",
+    "name": "You've Got The Power",
+    "flavour": "mint chocolate",
+    "released": "2014-12-20"
+  },
+  {
+    "artist": "The Mundertaker",
+    "name": "Wishing In The Night",
+    "flavour": "peanut butter",
+    "released": "2016-01-01"
+  },
+  {
+    "artist": "Mama",
+    "name": "Opa Opa Ta Bouzoukia",
+    "flavour": "white chocolate",
+    "released": "2013-04-27"
+  },
+  {
+    "artist": "Mama",
+    "name": "Greasy Fingers - boss level",
+    "flavour": "bacon",
+    "released": "2016-03-01"
+  },
+  {
+    "artist": "Mama",
+    "name": "Alabama Sunrise",
+    "flavour": "banana",
+    "released": "2016-04-01"
+  },
+  {
+    "artist": "Mama",
+    "name": "Can't Buy Me Skills",
+    "flavour": "lemon raspberry",
+    "released": "2016-05-01"
+  },
+  {
+    "artist": "Mama",
+    "name": "Vivaldi Allegro Mashup",
+    "flavour": "chocolate mocha",
+    "released": "2016-06-01"
+  },
+  {
+    "artist": "Mama",
+    "name": "Babysitting",
+    "flavour": "cookies and cream",
+    "released": "2016-07-01"
+  }
+]

@@ -4,5 +4,11 @@ python:
   - "3.5"
   - "3.6"
 
+services:
+  - docker
+
+before_install:
+  - "make docker-up-mongo"
+
 install: "make venv"
 script: "make test"
