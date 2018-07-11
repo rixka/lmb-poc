@@ -1,10 +1,10 @@
 from os import environ
-from flask import Blueprint, abort
+from flask import Blueprint, request, abort
 from pymongo import MongoClient
 
 from utils import (
     json_response, validate_object_id,
-    parse_query
+    parse_query, validate_rating
 )
 
 MONGO_HOST = environ.get('MONGO_HOST') or 'localhost'
@@ -47,6 +47,18 @@ def cupcakes_search():
     return json_response({
         'data': cupcakes
     })
+
+@api.route('/cupcakes/rating', methods=['POST'])
+def create_cupcakes_rating():
+    data = request.json
+    data['cupcakeId'] = validate_object_id(data['cupcakeId'])
+
+    validate_rating(data['rating'])
+    validate_cupcake_exists(data['cupcakeId'])
+
+    rating_id = db.ratings.insert(data)
+    headers = { 'Location': str.join('/', [ '/cupcakes/rating', str(rating_id) ]) }
+    return json_response({ 'message': 'The item was created successfully' }, 201, headers)
 
 @api.route('/cupcakes/avg/rating/<cupcake_id>', methods=['GET'])
 def cupcakes_avg_rating(cupcake_id):

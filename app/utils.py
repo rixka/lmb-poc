@@ -21,3 +21,10 @@ def validate_object_id(_id):
 def parse_query(param):
     target = dict(request.args).get(param)
     return target[0] if target else None
+
+# Using jsonschema would be technically more accurate but this is faster
+def validate_rating(n):
+    if 1 <= n <= 5:
+        return True
+
+    abort(400)
