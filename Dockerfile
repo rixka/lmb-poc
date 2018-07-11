@@ -1,5 +1,8 @@
 FROM jfloff/alpine-python:2.7
 
+ENV MONGO_HOST mongodb
+ENV MONGO_DB development
+
 WORKDIR /src
 COPY requirements.txt /src/
 
