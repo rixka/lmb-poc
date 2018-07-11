@@ -1,0 +1,13 @@
+# === FILES === #
+*.pyc
+
+# === DIRS === #
+# Should be in global gitinore but whatever
+venv
+.cache
+__pycache__
+.pytest_cache
+*.egg-info/
+*.egg
+eggs/
+.eggs/
