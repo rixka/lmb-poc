@@ -1,5 +1,6 @@
 # === FILES === #
 *.pyc
+*.zip
 
 # === DIRS === #
 # Should be in global gitinore but whatever
