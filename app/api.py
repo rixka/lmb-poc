@@ -60,6 +60,16 @@ def create_cupcakes_rating():
     headers = { 'Location': str.join('/', [ '/cupcakes/rating', str(rating_id) ]) }
     return json_response({ 'message': 'The item was created successfully' }, 201, headers)
 
+@api.route('/cupcakes/rating/<rating_id>', methods=['GET'])
+def cupcakes_rating(rating_id):
+    rating_id = validate_object_id(rating_id)
+    rating = list(db.ratings.find({ '_id': rating_id }).limit(1))
+    check_not_empty(rating)
+
+    return json_response({
+        'data': rating[0]
+    })
+
 @api.route('/cupcakes/avg/rating/<cupcake_id>', methods=['GET'])
 def cupcakes_avg_rating(cupcake_id):
     cupcake_id = validate_object_id(cupcake_id)
