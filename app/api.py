@@ -35,6 +35,21 @@ def cupcakes_list():
 
 # === HANDLERS === #
 
+@api.errorhandler(400)
+def not_found(error):
+    return json_response({'error': 'Bad Request'}, 400)
+
 @api.errorhandler(404)
 def not_found(error):
     return json_response({'error': 'Not Found'}, 404)
+
+@api.errorhandler(500)
+def internal_error(error):
+    return json_response({'error': 'Internal Server Error'}, 500)
+
+@api.errorhandler(501)
+def not_implemented(error):
+    return json_response({'error': 'Not Implemented'}, 501)
+
+def check_not_empty(r):
+    if r == []: abort(404)
