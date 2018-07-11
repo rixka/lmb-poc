@@ -1,5 +1,7 @@
 # Little Mama’s Bakery
 
+[![Build Status](https://travis-ci.org/rixka/lmb-poc.svg?branch=master)](https://travis-ci.org/rixka/lmb-poc)
+
 ### Customer Overview
 Little Mama’s Bakery [LMB] is a British multinational bakery company headquartered in Edinburgh, United Kingdom.
 It has about 33 million customers across 16 countries. In the United Kingdom, LMB  is the largest general bakery
