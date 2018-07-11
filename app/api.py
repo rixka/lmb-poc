@@ -33,6 +33,21 @@ def cupcakes_list():
         'data': cupcakes
     })
 
+@api.route('/cupcakes/search', methods=['GET'])
+def cupcakes_search():
+    message = parse_query('message')
+
+    if not message:
+        return cupcakes_list()
+
+    query = { '$text': { '$search': message } }
+    cupcakes = list(db.cupcakes.find(query))
+    check_not_empty(cupcakes)
+
+    return json_response({
+        'data': cupcakes
+    })
+
 # === HANDLERS === #
 
 @api.errorhandler(400)
