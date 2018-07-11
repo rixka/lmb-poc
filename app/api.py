@@ -48,6 +48,29 @@ def cupcakes_search():
         'data': cupcakes
     })
 
+@api.route('/cupcakes/avg/rating/<cupcake_id>', methods=['GET'])
+def cupcakes_avg_rating(cupcake_id):
+    cupcake_id = validate_object_id(cupcake_id)
+    validate_cupcake_exists(cupcake_id)
+
+    rating = db.ratings.aggregate([
+        {
+            '$match': { 'cupcakeId': cupcake_id }
+        },
+        {
+            '$group': {
+                '_id': '$cupcakeId',
+                'minRating': { '$min': '$rating' },
+                'avgRating': { '$avg': '$rating' },
+                'maxRating': { '$max': '$rating' }
+            }
+        }
+    ])
+
+    return json_response({
+        'data': rating
+    })
+
 # === HANDLERS === #
 
 @api.errorhandler(400)
@@ -65,6 +88,14 @@ def internal_error(error):
 @api.errorhandler(501)
 def not_implemented(error):
     return json_response({'error': 'Not Implemented'}, 501)
+
+# TODO: Move into a database module
+def validate_cupcake_exists(cupcake_id):
+    check_not_empty(
+        list(
+            db.cupcakes.find({ '_id': cupcake_id }, { '_id': 1 }).limit(1)
+        )
+    )
 
 def check_not_empty(r):
     if r == []: abort(404)
