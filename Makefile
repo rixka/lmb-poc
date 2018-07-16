@@ -39,9 +39,11 @@ reset-venv:
 	rm -rf "$(VENV)"
 	$(MAKE) venv
 
-test:
+test: venv docker-up-mongo
 	. $(VENV)/bin/activate && \
-	py.test -vvra tests
+	py.test -vvra tests && \
+	make docker-down
+	make clean
 
 run:
 	. $(VENV)/bin/activate && \

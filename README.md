@@ -92,13 +92,12 @@ Once the API container is running you can curl requests or navigate with the bro
 curl -v http://localhost:5000/cupcakes
 
 # example id
-curl -v "http://localhost:5000/cupcakes?cupcake-id=5aae8dd659b58a3eb2973b6c"
+curl -v "http://localhost:5000/cupcakes?last-id=5aae8dd659b58a3eb2973b6c"
 ```
 
 
 ### Quick testing
 ```shell
-make venv
 make test
 ```
 
